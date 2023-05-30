@@ -1,0 +1,55 @@
+.single-player-container {
+    width: 250px;
+    height: auto;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    text-align: start;
+    box-shadow: 2px 2px 4px gray;
+   
+}
+.single-player-container img {
+    width: 245px;
+    height: 240px;
+}
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    
+}
+.btn-container button {
+    margin-top: 5px;
+}
+.first-btn {
+    background-color: #ed7124;
+    color: rgb(20, 20, 20);
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 10px 10px 0 0;
+}
+.first-btn:hover {
+    background-color: #913800;
+    color: white;
+}
+.middle-btn {
+    background-color: #8c47fb;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+.middle-btn:hover {
+    background-color: #4508a8;
+    color: white;
+}
+.last-btn {
+    border-radius: 0 0 10px 10px;
+    background-color: #a0ed24;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+.last-btn:hover {
+    background-color: #3bed24;
+}

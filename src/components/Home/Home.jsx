@@ -10,7 +10,6 @@ const Home = () => {
         .then(res => res.json())
         .then(data => setPlayers(data?.player))
     }, [search]);
-    console.log(players);
     return (
         <div className='home-container'>
             <div className="home-players">

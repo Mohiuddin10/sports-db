@@ -6,10 +6,11 @@ const Players = ({players}) => {
     
     console.log(players);
     return (
-        <div>
-            <SInglePlayer />
+        <div className='players-container-1'>
             {
-
+              players.map(player => <SInglePlayer player={player}
+                key={player.idPlayer}
+                />)  
             }
             
         </div>
