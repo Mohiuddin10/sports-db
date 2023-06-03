@@ -5,6 +5,7 @@ import Players from '../Players/Players';
 const Home = () => {
     const [ players, setPlayers] = useState([]);
     const [search, setSearch] = useState('');
+    const [ cart, setCart] = useState([]);
     useEffect(() => {
         fetch(`https://www.thesportsdb.com/api/v1/json/3/searchplayers.php?p=${search}`)
         .then(res => res.json())
@@ -17,7 +18,7 @@ const Home = () => {
                 <button className='search-btn'>Search</button>
                 <div className="players-container">
                     <h1>Players found: ${players.length}</h1>
-                   <Players players={players}/>
+                   <Players players={players} cart={cart} setCart={setCart}/>
                 </div>
             </div>
             <div className="home-cart">
