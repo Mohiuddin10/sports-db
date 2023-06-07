@@ -23,6 +23,11 @@ const Home = () => {
             </div>
             <div className="home-cart">
                 <h1>Cart</h1>
+                {
+                    cart?.map((p) => (
+                        <li>{p.idPlayer}</li>
+                    ))
+                }
             </div>
         </div>
     );
