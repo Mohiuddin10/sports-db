@@ -2,20 +2,26 @@ import React from 'react';
 import './SinglePlayer.css';
 
 const SInglePlayer = ({player, cart, setCart}) => {
-    const {strName, strCutout, strGender, dateBorn, strBirthLocation, strHeight, strNationality, strSport} = player;
+    const {idPlayer, strCutout, strGender, dateBorn, strBirthLocation, strHeight, strNationality, strSport} = player;
     const handleAddToCart = () => {
         const info = {
-            strName, strCutout, strGender, dateBorn, strBirthLocation, strHeight, strNationality, strSport, price: 120
+            idPlayer, strCutout, strGender, dateBorn, strBirthLocation, strHeight, strNationality, strSport, price: 120
         }
-        const newCart = [info];
-        setCart(newCart);
-        console.log(newCart);
+        if (cart){
+            const newCart = [...cart, info];
+            setCart(newCart);
+        }
+        else {
+            const newCart = [info];
+            setCart(newCart);  
+        }
+        
     }
     
     return (
         <div className='single-player-container'>
             <img src={strCutout ? strCutout : 'https://static.semrush.com/blog/uploads/files/7a/c4/7ac4acca6898c1bb4781b64dd751a8df/what-does-error-404-not-found-mean.svg'} alt="no-img" />
-            <h3>Name: {strName}</h3>
+            <h3>Name: {idPlayer}</h3>
             <h5>Gender: {strGender}</h5>
             <p>Date of Born: {dateBorn}</p>
             <p>Place of Birth: {strBirthLocation}</p>
