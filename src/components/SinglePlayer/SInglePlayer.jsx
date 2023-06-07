@@ -4,8 +4,14 @@ import './SinglePlayer.css';
 const SInglePlayer = ({player, cart, setCart}) => {
     const {strName, strCutout, strGender, dateBorn, strBirthLocation, strHeight, strNationality, strSport} = player;
     const handleAddToCart = () => {
-        
+        const info = {
+            strName, strCutout, strGender, dateBorn, strBirthLocation, strHeight, strNationality, strSport, price: 120
+        }
+        const newCart = [info];
+        setCart(newCart);
+        console.log(newCart);
     }
+    
     return (
         <div className='single-player-container'>
             <img src={strCutout ? strCutout : 'https://static.semrush.com/blog/uploads/files/7a/c4/7ac4acca6898c1bb4781b64dd751a8df/what-does-error-404-not-found-mean.svg'} alt="no-img" />
