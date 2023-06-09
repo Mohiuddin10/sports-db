@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Home.css';
 import Players from '../Players/Players';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Home = () => {
     const [ players, setPlayers] = useState([]);
@@ -11,7 +12,13 @@ const Home = () => {
         .then(res => res.json())
         .then(data => setPlayers(data?.player))
     }, [search]);
-    console.log(cart);
+    
+const handleDelete = (id) => {
+    const remainingPlayer = cart.filter(pd => pd.idPlayer !== id);
+    setCart(remainingPlayer);
+    toast("Wow so easy, deleted!");
+}
+
     return (
         <div className='home-container'>
             <div className="home-players">
@@ -26,7 +33,12 @@ const Home = () => {
                 <h1>Cart</h1>
                 {
                     cart?.map((p) => (
-                        <li>{p.idPlayer}</li>
+                        <div className="cart-container">
+                            <li>{p.idPlayer}</li>
+                            <button onClick={()=> handleDelete(p.idPlayer)} className='delete-btn'>Delete</button>
+                            <ToastContainer />
+                        </div>
+                        
                     ))
                 }
             </div>
