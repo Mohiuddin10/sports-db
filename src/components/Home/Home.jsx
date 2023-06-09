@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './Home.css';
 import Players from '../Players/Players';
 import { ToastContainer, toast } from 'react-toastify';
+import Swal from 'sweetalert2'
 
 const Home = () => {
     const [ players, setPlayers] = useState([]);
@@ -17,6 +18,11 @@ const handleDelete = (id) => {
     const remainingPlayer = cart.filter(pd => pd.idPlayer !== id);
     setCart(remainingPlayer);
     toast("Wow so easy, deleted!");
+    Swal.fire(
+        'Good job!',
+        'You clicked the button!',
+        'success'
+      )
 }
 
     return (
