@@ -1,6 +1,7 @@
 import React from 'react';
 import './SinglePlayer.css';
 import Swal from 'sweetalert2'
+import { isDisabled } from '@testing-library/user-event/dist/utils';
 
 const SInglePlayer = ({player, cart, setCart}) => {
     const {idPlayer, strCutout, strGender, dateBorn, strBirthLocation, strHeight, strNationality, strSport} = player;
@@ -31,7 +32,7 @@ const SInglePlayer = ({player, cart, setCart}) => {
 
     const handleBookmark = () => {
         const info = {
-            idPlayer, strCutout, strGender, dateBorn, strBirthLocation, strHeight, strNationality, strSport, price: 120, bookmark: true
+            idPlayer, strCutout, strGender, dateBorn, strBirthLocation, strHeight, strNationality, strSport, quantity: 120, bookmark: true
         }
         
         const isExist = localStorage.getItem('bookmark');
@@ -39,8 +40,11 @@ const SInglePlayer = ({player, cart, setCart}) => {
         if (parseIsExist) {
             const doubleExist = parseIsExist.find(p => p.idPlayer === idPlayer );
             if (doubleExist){
-                alert('Already exixts in bookmark');
-                return;
+                const updateQuantity = parseFloat(doubleExist.quantity) + 1;
+                doubleExist.quantity = updateQuantity;
+                
+                localStorage.setItem('bookmark', JSON.stringify(parseIsExist))
+                console.log(updateQuantity);
             }
             else {
                 localStorage.setItem('bookmark', JSON.stringify([...parseIsExist, info]))
@@ -72,3 +76,9 @@ const SInglePlayer = ({player, cart, setCart}) => {
 };
 
 export default SInglePlayer;
+
+
+// task:
+// 1. when click on bookmark, bookmark button will be isDisabled
+// 2. one player can not add in cart more then one
+// 3. three button set in fixed place i.e. buttom of the card

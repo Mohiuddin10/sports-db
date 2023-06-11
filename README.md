@@ -1,3 +1,13 @@
+# Projet description
+This is a simple card based project and the main goal of this project is to clear the idea of api management and use od local storage.
+
+in addition we will learn some awesome react libreary that is toast, welcome and aoc.
+
+# Author:
+Mohammad Mohiuddin
+Email: sj.ctg6737@gmail.com
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
